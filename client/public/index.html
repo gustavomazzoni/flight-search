@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Flight Search</title>
+    <link rel="stylesheet" href="/assets/flight-search-0.0.1.css">
+  </head>
+  <body>
+    <div class="row">
+      <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+
+        <div class="page-header text-center">
+          <h1>Flight Search</h1>
+        </div>
+
+        <div class="col-xs-12">
+          <form class="well" flights-table data-target="#flights-table" 
+            data-template="#flights-table-template" action="/api/v1/search" method="GET">
+            <div class="row">
+              <div class="col-xs-12 form-group">
+                <label for="qFrom">From location:</label>
+                <input type="hidden" id="from" name="from">
+                <input type="text" class="typeahead form-control" id="qFrom" name="qFrom" 
+                  placeholder="City, airport (eg: Sydney)" autocomplete="off" required>
+                <!-- errors will go here -->
+                <p class="help-block">Required</p>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-xs-12 form-group">
+                <label for="qTo">To location:</label>
+                <input type="hidden" id="to" name="to">
+                <input type="text" class="typeahead form-control" id="qTo" name="qTo" 
+                  placeholder="City, airport (eg: Heathrow)" autocomplete="off" required>
+                <!-- errors will go here -->
+                <p class="help-block">Required</p>
+              </div>
+            </div>
+            
+            <div class="row">
+              <div class="col-xs-6 col-md-4 form-group">
+                <label for="date">Travel date:</label>
+                <input type="text" class="datepicker form-control" name="date" placeholder="(eg: 2016-09-02)" required>
+                <!-- errors will go here -->
+                <p class="help-block">Required</p>
+                <p class="help-block">Date should be in YYYY-MM-DD format.</p>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-success">
+              Search for Flights <span class="fa fa-arrow-right"></span>
+            </button>
+          </form>
+
+          <div id="flights-table"></div>
+        </div>
+
+      </div>
+    </div>
+
+    <script type="text/template" id="flights-table-template">
+      <div class="flights-table panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            <span>Flights</span>
+          </h3>
+        </div>
+        <div class="panel-body">
+          <ul class="flights-dates-nav nav nav-pills nav-justified" role="tablist">
+            <li class="flights-date-template" role="presentation">
+              <a class="flights-date" role="tab" data-toggle="pill"></a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="panel-body">
+          <div class="flights-content tab-content">
+            <div role="tabpanel" class="flights-list-template flights-list tab-pane">
+              <div class="flight-template media list-group-item">
+                <div class="flight-airline col-xs-3"></div>
+                <div class="col-xs-3">
+                  <h4 class="flight-start-airportCode media-heading"></h4>
+                  <p class="flight-start-dateTime"></p>
+                </div>
+                <div class="col-xs-3">
+                  <h4 class="flight-finish-airportCode media-heading"></h4>
+                  <p class="flight-finish-dateTime"></p>
+                </div>
+                <div class="col-xs-3">
+                  <h4 class="flight-price media-heading"></h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> 
+      </div>
+    </script>
+
+    <!-- Load JS -->
+    <script src="js/flight-search-0.0.1.js"></script>
+  </body>
+</html>

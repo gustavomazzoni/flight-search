@@ -1,0 +1,11 @@
+{
+  "author": "Gustavo Mazzoni",
+  "name": "flight-search",
+  "version": "0.0.1",
+  "dependencies": {
+    "bootstrap": "~3.3.6",
+    "moment-timezone": "^0.5.5",
+    "bs-typeahead": "^0.0.5",
+    "bootstrap-waitingfor": "^1.2.4"
+  }
+}

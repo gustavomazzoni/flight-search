@@ -1,0 +1,19 @@
+{
+  "author": "Gustavo Mazzoni",
+  "name": "flight-search",
+  "version": "0.0.1",
+  "scripts": {
+    "test": "mocha tests --recursive",
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "async": "^2.0.1",
+    "body-parser": "~1.13.2",
+    "express": "~4.13.1",
+    "redis": "^2.6.2"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5"
+  }
+}
